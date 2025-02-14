@@ -29,19 +29,34 @@ bg_style = f"""
     }}
 
     .digital-card {{
-        font-family: 'Courier New', monospace;
-        font-size: 10rem;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 20px;
-        border-radius: 10px;
-        color: white;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transform: translateY(0);
-        transition: transform 0.5s ease-in-out;
+            font-family: 'Courier New', monospace;
+            font-size: 10vw; /* Scale font size based on viewport width */
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            transition: transform 0.5s ease-in-out;
+        }}
+        .digital-card:hover {{
+            transform: translateY(-20px);
     }}
-    .digital-card:hover {{
-        transform: translateY(-20px);
+
+    /* Adjust layout for smaller screens */
+    @media (max-width: 768px) {{
+        .digital-card {{
+            font-size: 15vw; /* Larger font size for mobile */
+            padding: 10px;
+        }}
+    }}
+
+    @media (max-width: 480px) {{
+        .digital-card {{
+            font-size: 20vw; /* Even larger font size for very small screens */
+            padding: 5px;
+        }}
     }}
     </style>
 """
