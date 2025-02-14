@@ -20,7 +20,7 @@ bg_style = f"""
         background-size: cover;
     }}
     .countdown {{
-        font-size: 10rem;
+        font-size: 12rem;
         font-weight: bold;
         font-family: 'Cinzel', serif; /* Norse-styled font */
         color: #FFFFFF;
@@ -41,8 +41,8 @@ def countdown_timer():
     while True:
         now = datetime.datetime.now()
         time_left = end_date - now
-        #if time_left.total_seconds() > 0:
-        if False:            
+        if time_left.total_seconds() > 0:
+        #if False:            
             days, seconds = divmod(time_left.total_seconds(), 86400)
             hours, seconds = divmod(seconds, 3600)
             minutes, seconds = divmod(seconds, 60)
