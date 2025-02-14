@@ -5,7 +5,7 @@ from PIL import Image
 import base64
 
 # Set page config
-st.set_page_config(page_title="Valhalla Countdown", layout="wide", page_icon="viking-helmet-favicon.png")
+st.set_page_config(page_title="Valhalla Countdown", layout="wide", page_icon="favicon.ico")
 
 def get_base64(file):
     with open(file, "rb") as f:
