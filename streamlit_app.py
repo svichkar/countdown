@@ -45,7 +45,7 @@ def countdown_timer():
             hours, seconds = divmod(seconds, 3600)
             minutes, seconds = divmod(seconds, 60)
             countdown_placeholder.markdown(
-                f'<p class="countdown">{int(days)}d {int(hours)}h {int(minutes)}m {int(seconds)}s</p>',
+                f'<span class="countdown">{int(days)}d {int(hours)}h {int(minutes)}m {int(seconds)}s</span>',
                 unsafe_allow_html=True
             )
             time.sleep(1)
@@ -53,9 +53,8 @@ def countdown_timer():
             countdown_placeholder.empty()  # Clear the countdown
             st.balloons()
             st.snow()
-            st.markdown("<h1 style='text-align: center; color: gold;'>Welcome to Valhalla!</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; color: gold;'>Goodbye Valhalla!</h1>", unsafe_allow_html=True)
             break
-
 
 # Run countdown
 countdown_timer()
