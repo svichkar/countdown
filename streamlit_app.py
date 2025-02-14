@@ -55,7 +55,7 @@ def countdown_timer():
             countdown_placeholder.empty()  # Clear the countdown
             st.balloons()
             st.snow()
-            st.markdown("<span class="countdown">Goodbye Valhalla!</span>", unsafe_allow_html=True)
+            st.markdown('<span class="countdown">Goodbye Valhalla!</span>', unsafe_allow_html=True)
             break
 
 # Run countdown
