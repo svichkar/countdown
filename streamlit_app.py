@@ -20,7 +20,7 @@ bg_style = f"""
         background-size: cover;
     }}
     .countdown {{
-        font-size: 200px;
+        font-size: 10rem;
         font-weight: bold;
         color: #FFD700;
         text-shadow: 6px 6px 12px black;
@@ -36,6 +36,7 @@ end_date = datetime.datetime(2025, 2, 19, 23, 59, 59)
 
 # Countdown logic
 def countdown_timer():
+    countdown_placeholder = st.empty()
     now = datetime.datetime.now()
     time_left = end_date - now
     if time_left.total_seconds() > 0:
