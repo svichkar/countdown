@@ -44,6 +44,14 @@ bg_style = f"""
             transform: translateY(-20px);
     }}
 
+    .timer-container {{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }}
+
     /* Adjust layout for smaller screens */
     @media (max-width: 768px) {{
         .digital-card {{
@@ -76,14 +84,11 @@ def countdown_timer():
             days, seconds = divmod(time_left.total_seconds(), 86400)
             hours, seconds = divmod(seconds, 3600)
             minutes, seconds = divmod(seconds, 60)
-            # countdown_placeholder.markdown(
-            #     f'<span class="countdown">{int(days)}d {int(hours)}h {int(minutes)}m {int(seconds)}s</span>',
-            #     unsafe_allow_html=True
-            # )
+
             # Display the rolling digital cards
             countdown_placeholder.markdown(
                 f"""
-                <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                <div class="timer-container">
                     <div class="digital-card">{int(days):02}d</div>
                     <div class="digital-card">{int(hours):02}h</div>
                     <div class="digital-card">{int(minutes):02}m</div>
