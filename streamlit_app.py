@@ -22,8 +22,9 @@ bg_style = f"""
     .countdown {{
         font-size: 10rem;
         font-weight: bold;
-        color: #FFD700;
-        text-shadow: 6px 6px 12px black;
+        font-family: 'Cinzel', serif; /* Norse-styled font */
+        color: #FFFFFF;
+        text-shadow: 2px 2px 10px #FFD700, 4px 4px 20px black; /* Gold outer glow with dark shadow */
         text-align: center;
     }}
     </style>
@@ -54,7 +55,7 @@ def countdown_timer():
             countdown_placeholder.empty()  # Clear the countdown
             st.balloons()
             st.snow()
-            st.markdown("<h1 style='text-align: center; color: gold;'>Goodbye Valhalla!</h1>", unsafe_allow_html=True)
+            st.markdown("<span class="countdown">Goodbye Valhalla!</span>", unsafe_allow_html=True)
             break
 
 # Run countdown
