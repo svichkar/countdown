@@ -29,10 +29,8 @@ bg_style = f"""
     }}
 
     .digital-card {{
-        #font-family: 'Courier New', monospace;
-        #font-size: 80px;
-        font-size: 12rem;
-        font-family: 'Cinzel', serif; /* Norse-styled font */
+        font-family: 'Courier New', monospace;
+        font-size: 10rem;
         background-color: rgba(0, 0, 0, 0.5);
         padding: 20px;
         border-radius: 10px;
