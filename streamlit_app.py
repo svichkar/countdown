@@ -6,6 +6,8 @@ from PIL import Image
 # Set page config
 st.set_page_config(page_title="Valhalla Countdown", layout="wide")
 
+st.image("valhalla-viking.webp", use_column_width=True)
+
 # Load background image
 bg_image = "valhalla-viking.webp"  # Image located in the same directory as main script
 bg_style = f"""
