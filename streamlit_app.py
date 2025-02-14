@@ -27,6 +27,22 @@ bg_style = f"""
         text-shadow: 2px 2px 10px #FFD700, 4px 4px 20px black; /* Gold outer glow with dark shadow */
         text-align: center;
     }}
+
+    .digital-card {{
+        font-family: 'Courier New', monospace;
+        font-size: 80px;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(0);
+        transition: transform 0.5s ease-in-out;
+    }}
+    .digital-card:hover {{
+        transform: translateY(-20px);
+    }}
     </style>
 """
 
@@ -45,10 +61,22 @@ def countdown_timer():
             days, seconds = divmod(time_left.total_seconds(), 86400)
             hours, seconds = divmod(seconds, 3600)
             minutes, seconds = divmod(seconds, 60)
+            # countdown_placeholder.markdown(
+            #     f'<span class="countdown">{int(days)}d {int(hours)}h {int(minutes)}m {int(seconds)}s</span>',
+            #     unsafe_allow_html=True
+            # )
+            # Display the rolling digital cards
             countdown_placeholder.markdown(
-                f'<span class="countdown">{int(days)}d {int(hours)}h {int(minutes)}m {int(seconds)}s</span>',
-                unsafe_allow_html=True
+                f"""
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                    <div class="digital-card">{hours:02}</div>
+                    <div class="digital-card">{minutes:02}</div>
+                    <div class="digital-card">{seconds:02}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
             )
+            
             time.sleep(1)
         else:
             countdown_placeholder.empty()  # Clear the countdown
