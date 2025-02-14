@@ -69,10 +69,10 @@ def countdown_timer():
             countdown_placeholder.markdown(
                 f"""
                 <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-                    <div class="digital-card">{days:02}</div>
-                    <div class="digital-card">{hours:02}</div>
-                    <div class="digital-card">{minutes:02}</div>
-                    <div class="digital-card">{seconds:02}</div>
+                    <div class="digital-card">{days:02}d</div>
+                    <div class="digital-card">{hours:02}h</div>
+                    <div class="digital-card">{minutes:02}m</div>
+                    <div class="digital-card">{int(seconds):02}s</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
