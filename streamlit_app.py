@@ -2,18 +2,21 @@ import streamlit as st
 import time
 import datetime
 from PIL import Image
+import base64
 
 # Set page config
 st.set_page_config(page_title="Valhalla Countdown", layout="wide")
 
-st.image("valhalla-viking.webp", use_container_width=True)
+def get_base64(file):
+    with open(file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
 
 # Load background image
-bg_image = "valhalla-viking.webp"  # Image located in the same directory as main script
+bg_image_base64 = get_base64("valhalla-viking.webp")
 bg_style = f"""
     <style>
-    .stApp {{
-        background: url({bg_image}) no-repeat center center fixed;
+   .stApp {{
+        background: url(data:image/webp;base64,{bg_image_base64}) no-repeat center center fixed;
         background-size: cover;
     }}
     .countdown {{
