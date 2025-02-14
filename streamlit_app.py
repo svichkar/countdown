@@ -34,23 +34,28 @@ st.markdown(bg_style, unsafe_allow_html=True)
 # Countdown target date
 end_date = datetime.datetime(2025, 2, 19, 23, 59, 59)
 
-# Countdown logic
+# Countdown logic with dynamic update
 def countdown_timer():
-    countdown_placeholder = st.empty()
-    now = datetime.datetime.now()
-    time_left = end_date - now
-    if time_left.total_seconds() > 0:
-        days, seconds = divmod(time_left.total_seconds(), 86400)
-        hours, seconds = divmod(seconds, 3600)
-        minutes, seconds = divmod(seconds, 60)
-        st.markdown(f'<span class="countdown">{int(days)}d {int(hours)}h {int(minutes)}m {int(seconds)}s</span>', unsafe_allow_html=True)
-    else:
-        st.balloons()
-        st.snow()
-        st.markdown("<h1 style='text-align: center; color: gold;'>Goodbye Valhalla!</h1>", unsafe_allow_html=True)
+    countdown_placeholder = st.empty()  # Placeholder to update countdown dynamically
+    while True:
+        now = datetime.datetime.now()
+        time_left = end_date - now
+        if time_left.total_seconds() > 0:
+            days, seconds = divmod(time_left.total_seconds(), 86400)
+            hours, seconds = divmod(seconds, 3600)
+            minutes, seconds = divmod(seconds, 60)
+            countdown_placeholder.markdown(
+                f'<p class="countdown">{int(days)}d {int(hours)}h {int(minutes)}m {int(seconds)}s</p>',
+                unsafe_allow_html=True
+            )
+            time.sleep(1)
+        else:
+            countdown_placeholder.empty()  # Clear the countdown
+            st.balloons()
+            st.snow()
+            st.markdown("<h1 style='text-align: center; color: gold;'>Welcome to Valhalla!</h1>", unsafe_allow_html=True)
+            break
+
 
 # Run countdown
 countdown_timer()
-
-# Auto-refresh every second
-st.rerun() if datetime.datetime.now() < end_date else None
