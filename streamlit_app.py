@@ -72,7 +72,7 @@ bg_style = f"""
 st.markdown(bg_style, unsafe_allow_html=True)
 
 # Countdown target date
-end_date = datetime.datetime(2025, 2, 19, 23, 59, 59)
+end_date = datetime.datetime(2025, 2, 19, 18, 59, 59)
 
 # Countdown logic with dynamic update
 def countdown_timer():
