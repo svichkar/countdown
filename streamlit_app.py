@@ -3,6 +3,7 @@ import time
 import datetime
 from PIL import Image
 import base64
+import pytz
 
 # Set page config
 st.set_page_config(page_title="Valhalla", layout="wide", page_icon="favicon.ico")
@@ -71,14 +72,17 @@ bg_style = f"""
 
 st.markdown(bg_style, unsafe_allow_html=True)
 
+# Set Kyiv timezone
+kyiv_tz = pytz.timezone("Europe/Kyiv")
+
 # Countdown target date
-end_date = datetime.datetime(2025, 2, 19, 18, 59, 59)
+end_date = kyiv_tz.localize(datetime.datetime(2025, 2, 19, 18, 59, 59))
 
 # Countdown logic with dynamic update
 def countdown_timer():
     countdown_placeholder = st.empty()  # Placeholder to update countdown dynamically
     while True:
-        now = datetime.datetime.now()
+        now = datetime.datetime.now(kyiv_tz)
         time_left = end_date - now
         if time_left.total_seconds() > 0:
             days, seconds = divmod(time_left.total_seconds(), 86400)
