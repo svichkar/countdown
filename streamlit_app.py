@@ -17,6 +17,7 @@ bg_image_base64 = get_base64("valhalla-viking.webp")
 def bg_style(bg_img):
     return f"""
         <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
        .stApp {{
             background: url(data:image/webp;base64,{bg_img}) no-repeat center center fixed;
             background-size: cover;
@@ -24,7 +25,7 @@ def bg_style(bg_img):
         .countdown {{
             font-size: 12vw; /* Scale font size based on viewport width */
             font-weight: bold;
-            font-family: 'Cinzel', serif; /* Norse-styled font */
+            font-family: 'Bebas Neue', Impact, sans-serif;
             color: #FFFFFF;
             text-shadow: 2px 2px 10px #FFD700, 4px 4px 20px black; /* Gold outer glow with dark shadow */
             text-align: center;
