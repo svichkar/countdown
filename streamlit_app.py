@@ -104,8 +104,8 @@ def countdown_timer():
     while True:
         now = datetime.datetime.now(kyiv_tz)
         time_left = end_date - now
-        # if time_left.total_seconds() > 0:
-        if False:    
+        if time_left.total_seconds() > 0:
+        # if False:    
             days, seconds = divmod(time_left.total_seconds(), 86400)
             hours, seconds = divmod(seconds, 3600)
             minutes, seconds = divmod(seconds, 60)
